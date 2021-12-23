@@ -1,0 +1,29 @@
+.allFeed {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  min-width: fit-content;
+  border-right: 1px solid #e6ecf0;
+  overflow-y: scroll;
+}
+
+.allFeed::-webkit-scrollbar {
+  display: none;
+}
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 9999;
+  border: 1px solid #e6ecf0;
+  padding: 15px 20px;
+}
+
+.header h2 {
+  font-size: 20px;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+}
