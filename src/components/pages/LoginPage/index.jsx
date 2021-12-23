@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { FaTwitter } from "react-icons/fa";
+import "./styles.css";
+
 
 import {
   getAuth,
@@ -54,84 +57,97 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="posts-page">
+    <div className="container">
+    <div className="logo-container">
+     
+      <div className="form-container">
+ <FaTwitter className="logo" style={{ margin: 0 }} size={30} color="#50b7f5" />
+  
       {mode === "login" && (
         <form className="form-layout" onSubmit={handleSubmit(loginUser)}>
-          <h2>Welcome back, please log in!</h2>
+          
+          <h2>Sign In</h2>
           <br />
-          <label htmlFor="user">Email</label>
-          <input type="email" required name="user" {...register("user")} />
+          <div className="fill-content">
+            <input type="email" id="email" placeholder="Email" required name="user" {...register("user")} />
+            <input type="password" id="password" placeholder="Password" required name="password" {...register("password")}/>
+          </div><br/>
+         
 
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            required
-            name="password"
-            {...register("password")}
-          />
-
-          <input type="submit" value="Login" />
+          <button type="submit" id="login">Login</button>
           <br />
-          <p>Don't have an account? Create a new account now!</p>
-          <button onClick={() => setMode("signup")}>Sign Up</button>
+          <div id="sign">
+          <p>Don't have an account?</p>
+          <button id="modeButton" onClick={() => setMode("signup")}>Sign Up</button>
+          </div>
         </form>
       )}
 
       {mode === "signup" && (
+    
         <form className="form-layout" onSubmit={handleSubmit(signUpUser)}>
-          <h2>Welcome! Please create an account to continue.</h2>
+          <h2>Create your account</h2>
           <br />
 
-          <label htmlFor="name">Name</label>
-          <input type="text" required name="name" {...register("name")} />
+          
+          <input type="text" placeholder="Name" required name="name" {...register("name")} />
           <br />
 
-          <label htmlFor="username">Username</label>
+         
           <input
             type="text"
+            placeholder="Username" 
             required
             name="username"
             {...register("username")}
           />
           <br />
 
-          <label htmlFor="profilepic">Profile Pic</label>
+         
           <input
             type="text"
+            placeholder="Profile Picture URL" 
             required
             name="profilepic"
             {...register("profilepic")}
           />
           <br />
 
-          <label htmlFor="user">Email</label>
-          <input type="email" required name="user" {...register("user")} />
+         
+          <input type="email" placeholder="Email"  required name="user" {...register("user")} />
           <br />
 
-          <label htmlFor="password">Password</label>
+          
           <input
             type="password"
+            placeholder="Password" 
             required
             name="password"
             {...register("password")}
           />
           <br />
 
-          <label htmlFor="passwordConfirm">Confirm Password</label>
+        
           <input
             type="password"
+            placeholder="Confirm Password" 
             required
             name="passwordConfirm"
             {...register("passwordConfirm")}
           />
           <br />
 
-          <input type="submit" value="Sign Up" />
+          <button type="submit" id="signupButton">Sign Up</button>
           <br />
+          <div id="sign">
           <p>Already have an account?</p>
-          <button onClick={() => setMode("login")}>Login</button>
+          <button onClick={() => setMode("login")} id="loginButton">Login</button>
+          </div>
         </form>
+    
       )}
+          </div>
+    </div>
     </div>
   );
 };
